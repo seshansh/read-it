@@ -17,8 +17,8 @@ function App() {
       <Router>
       <Navbar search={search} setSearch={setSearch} />
       <Routes>
-        <Route element={<HomePage search={search} setSearch={setSearch} />} path='/'/>
-        <Route path='/post/:postId' Component={BlogDetails}/>
+        <Route element={<HomePage search={search} setSearch={setSearch} />} path='/read-it'/>
+        <Route path='/read-it/post/:postId' Component={BlogDetails}/>
       </Routes>
       <Footer />
       </Router>
