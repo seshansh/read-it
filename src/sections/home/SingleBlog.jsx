@@ -26,10 +26,10 @@ const SingleBlog = ({post}) => {
     
 
     return <>
-            <div style={{cursor:"pointer"}} onClick={()=>navigate(`/post/${post.id}`)} >
+            <div className="single-container" onClick={()=>navigate(`/post/${post.id}`)} >
             <div className="profile-section">
                 <Avatar><img  src={user?.image} style={{ width: 50, height: 50, borderRadius: 50}}/></Avatar>
-                <p>{user?.firstName + " " + user?.lastName  }</p>
+                <p>{user?.firstName + " " + user?.lastName  } @{user?.username}</p>
             </div>
 
             <div className="tags">{
@@ -45,7 +45,7 @@ const SingleBlog = ({post}) => {
             <FavoriteBorderIcon color="grey"/> <p style={{marginLeft:"2px"}}>{post.reactions} likes</p>
             </span>
             </div>
-            <h1 style={{textAlign:'center',color:'#FA9884'}}>. . . .</h1>
+            {/* <h1 style={{textAlign:'center',color:'#FA9884'}}>. . . .</h1> */}
     </>
 };
 

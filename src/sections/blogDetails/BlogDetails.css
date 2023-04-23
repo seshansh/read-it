@@ -1,6 +1,5 @@
 .blog-page{
     display: flex;
-    height: 82vh;
 }
 
 .full-story{
@@ -13,12 +12,16 @@
 
 .related-content{
     margin-top: 110px;
-    width: 130%;
+    flex: 1;
+    /* width: 120%; */
     height:fit-content;
     padding: 20px 1.5%;
     background-color: #E9E8E8;
-    overflow-y: scroll;
-    max-height: 400px;
+    /* overflow-y: scroll; */
+    padding-bottom: 20px;
+}
+.content{
+    flex: 2;
 }
 /* .related-content>p:hover{
     cursor: pointer;
@@ -28,4 +31,11 @@
 .other-posts:hover{
     cursor: pointer;
     color: rgb(77, 40, 112);
+}
+
+@media screen and (max-width:1106px) {
+    .blog-page{
+        flex-direction: column;
+
+    }
 }

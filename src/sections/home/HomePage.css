@@ -1,4 +1,8 @@
 
+.single-container{
+    cursor:pointer;
+    border-top:solid grey thin;
+}
 
 .profile-section{
     margin-top: 20px;
@@ -30,4 +34,10 @@
 
 .discription{
     color: gray;
+}
+
+.single-container:hover{
+    /* background-color: #F1F6F9; */
+    transition:ease-in-out 400ms;
+    scale: 1;
 }

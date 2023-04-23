@@ -10,10 +10,11 @@ import SingleBlog from "./SingleBlog";
 import PaginationControlled from "../pagination/PaginationControlled";
 import BlogDetails from "../blogDetails/BlogDetails";
 import Card from '../../components/card/Card';
+import Loader from "../../components/loarder/Loader";
 
 
 const HomePage = ({ search }) => {
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState("");
     const [page, setPage] = useState(1)
 
     const fetchPosts = async () => {
@@ -24,6 +25,7 @@ const HomePage = ({ search }) => {
         const resp = await fetch(url);
         const response = await resp.json();
         if (search === "" || !search) {
+            console.log(response)
             setPosts(response.posts);
             return;
         }
@@ -34,20 +36,28 @@ const HomePage = ({ search }) => {
         fetchPosts();
     }, [page, search])
 
-    return <Card>
+    
 
-        <p style={{ color: "#002B5B", fontWeight: "600", marginBottom: "30px" }}>Recommended by READit</p>
+    return (
+        posts?<Card>
+        {console.log(posts,"bchjbc")}
+
+        {posts.length==0?<p style={{textAlign:"center", fontSize:"20px"}}>Search result not found</p>:
+
+        <p style={{ color: "#002B5B", fontWeight: "600", marginBottom: "30px" }}>Recommended by READit</p>}
         {
             posts.map((item) => <SingleBlog post={item} key={item.id} />)
         }
 
 
-        <div style={{ bottom: 0, margin: "10px 9% 45px", position: 'relative' }}>
+        {posts.length==0?"":<div style={{ bottom: 0, margin: "10px 9% 45px", position: 'relative' }}>
 
             <PaginationControlled page={page} setPage={setPage} />
         </div>
-
-    </Card>
+}
+    </Card>:<Loader />
+    
+    )
 
 
 };
