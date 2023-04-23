@@ -1,0 +1,20 @@
+
+
+/* @media screen and (max-width:600px) {
+    .card{
+        padding: 1.2rem;
+    }
+    
+}  */
+
+.main-container{
+        margin:0% 9%;
+        border: solid rgba(190, 189, 189, 0.349) ;
+        /* border-right: solid rgba(190, 189, 189, 0.349) ; */
+        border-width: 0.09px;
+        padding-top: 15px;
+        padding-left: 1%;
+        padding-right: 1%;
+        margin-top: 60px;
+        /* box-shadow: gray -2px 0px 6px; */
+    }

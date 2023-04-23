@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     background-color: #181D31;
-    position: fixed;
+    position:relative;
     bottom: 0;
     
 }

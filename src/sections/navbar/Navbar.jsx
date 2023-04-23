@@ -6,8 +6,10 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import MenuIcon from '@mui/icons-material/Menu';
+import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
+import { useNavigate } from 'react-router-dom';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -51,10 +53,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Navbar() {
+export default function Navbar({setSearch,search}) {
+  const navigate = useNavigate();
+  const [q,setQ]=React.useState('')
+  const handleChange=(e)=>{
+    if(e.key==="Enter")
+    setSearch(q)
+  }
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <IconButton
             size="large"
@@ -62,8 +70,9 @@ export default function Navbar() {
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 2 }}
+            onClick={()=>navigate("/")}
           >
-            <MenuIcon />
+            <HomeIcon />
           </IconButton>
           <Typography
             variant="h6"
@@ -79,7 +88,10 @@ export default function Navbar() {
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
+              value={q}
               inputProps={{ 'aria-label': 'search' }}
+              onChange={(e)=>setQ(e.target.value)}
+              onKeyDown={handleChange}
             />
           </Search>
         </Toolbar>
